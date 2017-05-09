@@ -1,17 +1,62 @@
 <div class="page-header">
-  <h3>Board #<%= @board.id %></h3>
-</div>
+ <h1>
+   Board: <%=@board.title%>
 
+   <small>
+     <%=@board.description%>
+
+     <a href="/boards" class="btn btn-default">
+       Back
+     </a>
+     <a href="/boards/1/edit" class="btn btn-default">
+       Edit
+     </a>
+     <a href="/delete_board/1" class="btn btn-default" rel="nofollow">
+       Delete
+     </a>
+   </small>
+ </h1>
+</div>
 <div class="row">
   <div class="col-md-12 mb-2">
-    <dl class="dl-horizontal">
-      <dt>Title</dt>
-      <dd><%= @board.title %></dd>
+    <h2>
+      Add a new list
+    </h2>
 
-      <dt>Description</dt>
-      <dd><%= @board.description %></dd>
+    <form action="/create_list" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="w4eHPpzj2Gi5jL3KyQblc9SElGoxdEV5mM8Zd27UlBa1AhL4q+tYRRIU6XBCWV0y0D3fBpKhe2qBCWud4dn4uA==">
 
-    </dl>
+          <!-- Label and input for title -->
+          <div class="form-group">
+            <label for="title" class="control-label">
+              Title
+            </label>
+
+            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
+          </div>
+
+          <input type="hidden" id="board_id" name="board_id" value="<%=@board.id%>">
+
+          <button class="btn btn-default">
+            Create List
+          </button>
+        </form>
+<ol>
+
+  <h2>
+    <% @board.lists.each do |pizza|%>
+      <li><%=pizza.title%></h2>
+
+      <ol><h3>
+      <% pizza.cards.each do |apple|%>
+      <li><<%=apple.title%></li>
+                <%end end %>
+              </h3></ol></li>
+
+  </ol>
+
+
 
     <div class="btn-group btn-group-justified">
       <a href="/boards" class="btn btn-default">

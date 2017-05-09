@@ -4,6 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem 'bcrypt', platforms: :ruby
 
 gem "starter_generators", :github => "raghubetina/starter_generators"
 gem "faker"
