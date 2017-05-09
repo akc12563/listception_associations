@@ -42,19 +42,15 @@
             Create List
           </button>
         </form>
-<ol>
 
-  <h2>
+    <ol><h2>
     <% @board.lists.each do |pizza|%>
-      <li><%=pizza.title%></h2>
-
+      <li><%=pizza.title%>
       <ol><h3>
       <% pizza.cards.each do |apple|%>
-      <li><<%=apple.title%></li>
-                <%end end %>
-              </h3></ol></li>
-
-  </ol>
+      <li><%=apple.title%></li></li>
+      <%end end%>
+    </ol><h3></ol></h2>
 
 
 
