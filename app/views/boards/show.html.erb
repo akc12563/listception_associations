@@ -43,14 +43,14 @@
           </button>
         </form>
 
-    <ol><h2>
+    <ol>
     <% @board.lists.each do |pizza|%>
-      <li><%=pizza.title%>
+      <h2><li><%=pizza.title%></li></h2>
       <ol><h3>
       <% pizza.cards.each do |apple|%>
-      <li><%=apple.title%></li></li>
-      <%end end%>
-    </ol><h3></ol></h2>
+      <li><%=apple.title%></li>
+      <%end%>
+    </ol><%end%></ol></h3>
 
 
 
