@@ -45,12 +45,15 @@
 
     <ol>
     <% @board.lists.each do |pizza|%>
-      <h2><li><%=pizza.title%></li></h2>
-      <ol><h3>
+      <h2><li>List: <%=pizza.title%></li></h2>
+      <ol>
       <% pizza.cards.each do |apple|%>
-      <li><%=apple.title%></li>
+      <h3><li>
+        Card:<a href="/cards/<%=apple.id%>"><%=apple.title%></a></h3>
+        <p class="lead"><%=apple.description%></p>
+        </li>
       <%end%>
-    </ol><%end%></ol></h3>
+    </ol><%end%></ol>
 
 
 
