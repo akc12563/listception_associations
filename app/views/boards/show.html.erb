@@ -51,8 +51,10 @@
       <h3><li>
         Card:<a href="/cards/<%=apple.id%>"><%=apple.title%></a></h3>
         <p class="lead"><%=apple.description%></p>
+              <% apple.tags.each do |cookie|%>
+              <a href="/tags/<%cookie.id%>" class="label label-default"><%=cookie.name%></a>
         </li>
-      <%end%>
+      <%end end%>
     </ol><%end%></ol>
 
 

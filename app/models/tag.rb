@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
   validates :name, :uniqueness => :true
-  belongs_to(:card, :class_name=>"Card", :foreign_key=>"card_id")
+  has_many(:cards, :class_name=>"Card", :foreign_key=>"card_id", :through=>"taggings")
 end
