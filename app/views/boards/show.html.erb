@@ -78,23 +78,11 @@
                     <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @card.description %></textarea>
                   </div>
 
-                  <!-- Label and input for list_id -->
-                  <div class="form-group">
-                    <label for="list_id" class="control-label">
-                      List
-                    </label>
+                  <!-- Input for list_id -->
+                  <input type="hidden" id="list_id" name="list_id" value="<%=pizza.id%>">
 
-                    <input type="hidden" id="list_id" name="list_id" value="<%=pizza.id%>">
-                  </div>
-
-                  <!-- Label and input for position_order -->
-                  <div class="form-group">
-                    <label for="position_order" class="control-label">
-                      Position order
-                    </label>
-
-                    <input type="hidden" id="position_order" name="position_order" value="<%=pizza.cards.count+1 %>">
-                  </div>
+                  <!-- Input for position_order -->
+                  <input type="hidden" id="position_order" name="position_order" value="<%=pizza.cards.count+1 %>">
 
                   <button class="btn btn-default">
                     Create Card
