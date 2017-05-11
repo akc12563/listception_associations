@@ -53,8 +53,55 @@
         <p class="lead"><%=apple.description%></p>
               <% apple.tags.each do |cookie|%>
               <a href="/tags/<%cookie.id%>" class="label label-default"><%=cookie.name%></a>
-        </li>
-      <%end end%>
+            </li><%end end%>
+            <li>
+
+                <form action="/create_card" method="post">
+                  <!-- Hidden input for authenticity token to protect from forgery -->
+                  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+                  <!-- Label and input for title -->
+                  <div class="form-group">
+                    <label for="title" class="control-label">
+                      Title
+                    </label>
+
+                    <input type="text" id="title" name="title" placeholder="Title" class="form-control">
+                  </div>
+
+                  <!-- Label and input for description -->
+                  <div class="form-group">
+                    <label for="description" class="control-label">
+                      Description
+                    </label>
+
+                    <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+                  </div>
+
+                  <!-- Label and input for list_id -->
+                  <div class="form-group">
+                    <label for="list_id" class="control-label">
+                      List
+                    </label>
+
+                    <input type="text" id="list_id" name="list_id" value="<%=@card.list_id%>">
+                  </div>
+
+                  <!-- Label and input for position_order -->
+                  <div class="form-group">
+                    <label for="position_order" class="control-label">
+                      Position order
+                    </label>
+
+                    <input type="text" id="position_order" name="position_order" placeholder="Position order" class="form-control" value="<%=@list.cards.count %>">
+                  </div>
+
+                  <button class="btn btn-default">
+                    Create Card
+                  </button>
+
+
+      </li>
     </ol><%end%></ol>
 
 
